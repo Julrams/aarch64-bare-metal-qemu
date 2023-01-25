@@ -13,7 +13,10 @@ Since I didn't write bare metal program on ARMv8/aarch64 before, I'll just do on
 8. That's it. Since qemu can load elf directly now. We can use 'qemu-system-aarch64 -M virt -cpu cortex-a57 -nographic  -kernel test64.elf' to run the elf and see 'Hello Wolrd!'.
 
 #HOW TO RUN
+
 qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -kernel test64.elf -L ../toolchain/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/lib/ -S -gdb tcp::1234,ipv4
+
+
 #DEBUG
 toolchain/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gdb
 target remote :1234
