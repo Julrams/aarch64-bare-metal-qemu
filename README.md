@@ -3,7 +3,8 @@ simple aarch64 bare metal 'Hello World' on qemu
 
 Since I didn't write bare metal program on ARMv8/aarch64 before, I'll just do one.
 
-1. starting from https://balau82.wordpress.com/2010/02/28/hello-world-for-bare-metal-arm-using-qemu/ seems a good idea
+1. starting from https://balau82.wordpress.com/2010/02/28/hello-world-for-bare-metal-arm-using-qemu/ seems a good idea 
+   And Also Forked from https://github.com/freedomtan/aarch64-bare-metal-qemu
 2. the toolchain is different, we need aarch64 cross compile toolchain. I think both linux and bare metal toolchains work for my testing purpose. However, I'll use bare metal one from linaro (http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-none-elf/gcc-linaro-4.9-2014.11-x86_64_aarch64-elf.tar.xz) 
 3. startup.s needs a bit tweek. We cannot ldr a value to the stack pointer (sp) directly. So I load the starting address of stack to x30, then load x30 into sp.
 4. my modified startup.s is named [startup64.s](startup64.s) which is compiled into startup64.o by 'aarch64-none-elf-as -g startup64.s -o startup64.o'
@@ -18,6 +19,7 @@ qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -kernel test64.elf -L ../
 
 
 #DEBUG
+
 toolchain/gcc-arm-10.3-2021.07-x86_64-aarch64-none-elf/bin/aarch64-none-elf-gdb
 target remote :1234
 
