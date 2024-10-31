@@ -4,7 +4,7 @@ aarch64(Cortex-A53 Target) bare metal code on qemu
 1. starting from https://balau82.wordpress.com/2010/02/28/hello-world-for-bare-metal-arm-using-qemu/ seems a good idea 
    And Also Forked from https://github.com/freedomtan/aarch64-bare-metal-qemu
    
-2. Please use bare metal one from linaro (http://releases.linaro.org/14.11/components/toolchain/binaries/aarch64-none-elf/gcc-linaro-4.9-2014.11-x86_64_aarch64-elf.tar.xz)
+2. Please use bare metal one from ARM Developer (https://developer.arm.com/-/media/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-x86_64-arm-none-eabi.tar.xz)
 
 3. One of the working aarch64 targets of qemu is virt, a look into qemu's [hw/arm/virt.c](http://git.qemu.org/?p=qemu.git;a=blob_plain;f=hw/arm/virt.c;hb=HEAD) shows that the memory mapped UART0 is located at 0x0900000. So the UART0DR in test.c should be changed to 0x09000000.
 
